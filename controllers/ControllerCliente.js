@@ -11,4 +11,14 @@ module.exports = class ClienteController {
             bodyContent: 'Conteúdo da página inicial' 
         });
     }
+
+
+    static dadosEstaticos(req, res) {
+        res.render("clientes/DadosEstaticos", { 
+            title: 'Esatico', 
+            activePage: 'estatico',                     
+            pageTitle: 'Dados Estaticos',
+            bodyContent: 'Conteúdo da página inicial' 
+        });
+    }
 }

@@ -3,11 +3,12 @@ module.exports = class VideoController {
 
     static cadastrarVideo(req, res) {
         res.render("videos/Cadastrar", { 
-            title: 'Cadastrar Videos', 
-            activePage: 'cadastrar',                      
-            pageTitle: 'Cadastrar Videos',
-            bodyContent: 'Conteúdo da página inicial' 
-        });
+                                            title: 'Cadastrar Videos', 
+                                            activePage: 'cadastrar',                      
+                                            pageTitle: 'Cadastrar Videos',
+                                            bodyContent: 'Pagina para Castrar vdieos' 
+                                        }
+        );
     }
 
     static async VideoCreate(req, res) {
@@ -20,8 +21,7 @@ module.exports = class VideoController {
             link: req.body.link
         }
 
-        await Video.create(video);
-        //res.send("Cadastro realizado com sucesso!");       
+        await Video.create(video);           
         res.redirect("/");
 
     }
@@ -31,8 +31,14 @@ module.exports = class VideoController {
     //LISTAR VIDEOS
     static async listarVideos(req, res) {
         const video = await Video.findAll({ raw: true })
-      
-        res.render("videos/listar", { video });
+        res.render("videos/listar", 
+                                    {   video,
+                                        title: 'Listar Videos', 
+                                        activePage: 'listar',                      
+                                        pageTitle: 'Listar os Videos',
+                                        bodyContent: 'Pagina para Listar' 
+                                    }
+        );     
     }
 
 
@@ -68,7 +74,21 @@ module.exports = class VideoController {
         res.redirect("/")
     }
 
-     
+      //LISTAR VIDEOS no grid
+    static async listarGrid(req, res) {        
+        res.render("videos/grid", { 
+            title: 'Grids', 
+            activePage: 'grid',                      
+            pageTitle: 'Listar os Vídeos no Grid',
+            bodyContent: 'Pagina para Listar' 
+        })
+    }
 
+
+//Dados Grid
+static async dadosGrid(req, res) {
+    const video = await Video.findAll({ raw: true })       
+    res.json(video);        
+}  
    
 }

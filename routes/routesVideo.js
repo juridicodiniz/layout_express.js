@@ -4,7 +4,17 @@ const ControllerCliente = require("../controllers/ControllerCliente");
 const router = express.Router();
 
 
-router.get("/", ControllerVideo.listarVideos);
+router.get("/", (req, res) => {
+    res.render("home", { 
+        title: 'Página inicial', 
+        activePage: 'home',                     
+        pageTitle: 'Página inicial',
+        bodyContent: 'Conteúdo da página inicial' 
+    });
+});
+
+
+router.get("/listar", ControllerVideo.listarVideos);
 
 router.get("/Cadastrar", ControllerVideo.cadastrarVideo);
 
@@ -16,7 +26,13 @@ router.post("/update", ControllerVideo.VideoUpdate);
 
 router.post("/remover", ControllerVideo.removerVideo);
 
+router.get("/grid", ControllerVideo.listarGrid);
+
+router.get("/dados", ControllerVideo.dadosGrid);
+
 router.get("/Cliente", ControllerCliente.cadastrarCliente);
+
+router.get("/estatico", ControllerCliente.dadosEstaticos);
 
 
 
