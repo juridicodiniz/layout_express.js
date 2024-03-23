@@ -1,0 +1,132 @@
+<!-- InputMask -->
+<script src="assets/plugins/adminlte3/jquery.inputmask.bundle.min.js"></script>
+
+<!-- Page script -->
+<script>
+$(function () {
+    //Money Euro
+    $('[data-mask]').inputmask();
+});
+</script>
+
+
+
+
+
+
+<div class="card card-info">
+    <div class="card-header">
+        <h3 class="card-title"><b>{{pageTitle}}</b></h3>   
+    </div>
+
+    <div class="card-body">
+
+
+        <form method="post" action="" >
+           
+            <!-- Div tipo Linha, onde fica as as div dir e esq     -->
+            <div class="row">         
+                <!-- Div da esquerda     -->
+                <div class="col-sm-6">
+
+                    <!-- Nome -->      
+                    <label class="block font-medium text-sm text-gray-700" for="name">Nome</label>                               
+                    <input type="text" required name="nome" class="form-control" placeholder="Nome do Cliente">        
+                    <br/>
+
+                    <!-- Tipo pessoa -->
+                    <label class="block font-medium text-sm text-gray-700" for="pessoa">Tipo de Pessoa</label>    
+                    <div class="form-control">  
+                        <input type="radio" name="tp_pessoa" value="pf" checked="true" id="opt_pf" >&nbsp;Pessoa Física&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="tp_pessoa" value="pj" id="opt_pj" >&nbsp;Pessoa Jurídica 
+                    </div>
+
+                    <br/>                     
+                    <!-- CPF/CNPJ -->      
+                    <label class="block font-medium text-sm text-gray-700" for="cpf_cnpj"   id="nome_tp" >CPF</label>                               
+                    <input style="display:inline" type="text" name="cpf" id="cpf"  class="form-control" placeholder="000.000.000-00" data-inputmask='"mask": "999.999.999-99"' data-mask> 
+                    <input style="display:none" type="text" name="cnpj" id="cnpj" class="form-control" placeholder="00.000.000/0000-00" data-inputmask='"mask": "99.999.999/9999-99"' data-mask>
+                    
+                    <br> <br>    
+           
+
+                    <script>
+                        $(function () {
+                            $('#opt_pf').click(function () {                                                              
+                                document.getElementById("nome_tp").innerText = "CPF";                               
+                                document.getElementById("cnpj").setAttribute("style", "display:none;"); 
+                                document.getElementById("cpf").setAttribute("style", "display:inline;");                                 
+ 
+                            });
+                            $('#opt_pj').click(function () {                                
+                                document.getElementById("nome_tp").innerText = "CNPJ";                              
+                                document.getElementById("cnpj").setAttribute("style", "display:inline;"); 
+                                document.getElementById("cpf").setAttribute("style", "display:none;"); 
+                            });
+                        });
+                       
+                    </script>
+
+
+
+             
+
+
+
+
+
+                </div> <!-- fecha div Esquerda -->
+
+                <!-- Div da Direita     -->
+                <div class="col-sm-6">
+
+                    <!-- Celular -->                                      
+                    <label class="block font-medium text-sm text-gray-700" for="celular">Celular</label> 
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-phone" aria-hidden="true"></i></span>
+                        </div>
+                        <input type="tel" name="tel" class="form-control"  placeholder="(99) 9999-9999" data-inputmask='"mask": "(99) 99999-9999"' data-mask>
+                    </div>
+                    <!-- /.input group -->
+
+                    <br/>
+
+                    <!-- Sexo -->
+                    <label class="block font-medium text-sm text-gray-700" for="sexo">Sexo</label>    
+                    <div class="form-control">  
+                        <input type="radio" name="sexo" value="M" checked="true"> Masculino
+                        <input type="radio" name="sexo" value="F"> Feminino 
+                    </div>
+                    <br/>  
+
+
+
+
+                    <!-- Observacoes -->       
+                    <label class="block font-medium text-sm text-gray-700" for="observacoes">Observações</label>           
+                    <textarea class="form-control" id="obs" name="observacoes" rows="2" cols="50" placeholder="Algo relevante sobre o cliente"></textarea>   
+
+
+
+
+
+
+
+
+
+                </div>  <!-- fecha div direita -->
+            </div>
+            <br>   
+            <input type="submit" class="btn btn-success" value="Salvar"/>
+            <input type="reset" class="btn btn-secondary" value="Cancelar"/> 
+
+
+        </form>
+
+
+    </div>  <!-- /.card-body -->
+    <div class="card-footer">
+
+    </div>  <!-- /.card-footer-->
+</div>  <!-- /.card -->
