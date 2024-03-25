@@ -10,8 +10,13 @@ const hand = require("express-handlebars");
 //impotando os Helps
 const helpers = require('./handlebars-helpers');
 
+//impotando Middleware  para visualziar o spinner
+const spinnerMiddleware = require('./middleware/spinnerMiddleware');
+
 //MODELS
 const Video = require("./models/Video");
+
+///Rotas
 const VideoRoutes = require("./routes/routesVideo");
 
 //CONTROLLERS
@@ -31,6 +36,8 @@ app.engine('handlebars', hand({
 app.set("view engine", "handlebars");
 app.use(express.urlencoded({ extended: true, }));
 app.use(express.json());
+// Adicione o middleware de spinner a todas as rotas
+app.use(spinnerMiddleware);
 
 // Servir arquivos estáticos
 app.use(express.static("public"));

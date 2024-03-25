@@ -1,16 +1,3 @@
-
-
-<!-- index.handlebars -->
-<div id="spinner-overlay" class="d-none">
-    <div class="spinner-container ">
-        <div class="spinner-border text-primary m-5" role="status">
-            <span class="visually-hidden">Carregando...</span>
-        </div>
-    </div>
-</div>
-
-
-
 <h1>{{pageTitle}}</h1>
 <!-- Conteúdo da página inicial -->
 
@@ -20,3 +7,21 @@
 
 
 
+<script>
+    // Exibe o spinner quando a página é carregada
+    document.getElementById('spinner-overlay').style.display = 'block';
+
+    // Faz uma requisição para a rota que simula o processamento
+    fetch('/simular-processamento')
+        .then(response => {
+            // Esconde o spinner quando a resposta é recebida
+            document.getElementById('spinner-overlay').style.display = 'none';
+            return response.text();
+        })
+        .then(data => {
+            console.log(data); // Aqui você pode manipular a resposta, se necessário
+        })
+        .catch(error => {
+            console.error('Erro ao fazer requisição:', error);
+        });
+</script>

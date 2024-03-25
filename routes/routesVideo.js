@@ -34,6 +34,13 @@ router.get("/Cliente", ControllerCliente.cadastrarCliente);
 
 router.get("/estatico", ControllerCliente.dadosEstaticos);
 
+// Rota com atraso para simular processamento
+router.get('/simular-processamento', (req, res) => {
+    // Adicione um atraso de 3 segundos (1000 milissegundos)
+    setTimeout(() => {
+        res.send('Processamento concluído!');
+    }, 1000);
+});
 
 
 
