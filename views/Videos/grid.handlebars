@@ -15,7 +15,8 @@
             <th>Título</th>
             <th>Assunto</th>
             <th>Descrição</th>
-            <th>link para visualização</th>           
+            <th>link para visualização</th> 
+            <th>Visualização</th>           
         </tr>
     </thead>    
 </table>
@@ -40,12 +41,19 @@
             dom: 'Blfrtip',
             buttons: ['copy', 'csv', 'excel', 'pdf', 'print'] ,
             "columns": [
-                { "data": "id_video" },
+                { "data": "id_video"},
                 { "data": "autor" },
                 { "data": "titulo" },
                 { "data": "assunto" },
                 { "data": "descricao" },
-                { "data": "link" }
+                { "data": "link" },
+                {
+                data: null,
+                render: function(data, type, row) {
+                    return (                       
+                        ' <iframe width="150" height="110" class="embed-responsive-item" src=" ' + data.link + '"  allowfullscreen></iframe>');
+                }
+            }
             ]
         });
 
