@@ -4,13 +4,17 @@ const ControllerCliente = require("../controllers/ControllerCliente");
 const router = express.Router();
 
 
-router.get("/", (req, res) => {
+router.get("/home", (req, res) => {
     res.render("home", { 
         title: 'Página inicial', 
         activePage: 'home',                     
         pageTitle: 'Página inicial',
         bodyContent: 'Conteúdo da página inicial' 
     });
+});
+
+router.get("/", (req, res) => {
+    res.send('Aplicação online.');
 });
 
 
