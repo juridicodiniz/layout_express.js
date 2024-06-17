@@ -14,11 +14,6 @@ router.get("/", (req, res) => {
 });
 
 
-router.get("/home", (req, res) => {
-    return res.json({ message: "Aplicação online" });
-})
-
-
 
 router.get("/listar", ControllerVideo.listarVideos);
 
