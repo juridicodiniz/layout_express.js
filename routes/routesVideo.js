@@ -4,7 +4,7 @@ const ControllerCliente = require("../controllers/ControllerCliente");
 const router = express.Router();
 
 
-router.get("/home", (req, res) => {
+router.get("/", (req, res) => {
     res.render("home", { 
         title: 'Página inicial', 
         activePage: 'home',                     
@@ -14,7 +14,7 @@ router.get("/home", (req, res) => {
 });
 
 
-router.get("/", (req, res) => {
+router.get("/home", (req, res) => {
     return res.json({ message: "Aplicação online" });
 })
 
