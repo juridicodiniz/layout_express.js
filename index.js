@@ -46,6 +46,7 @@ app.use(express.static("public"));
 app.use("/", VideoRoutes);
 
 
+
 //SINCRONISMO COM O BANCO DE DADOS
 try {
     database.sync().then(() => {
