@@ -13,9 +13,11 @@ router.get("/home", (req, res) => {
     });
 });
 
+
 router.get("/", (req, res) => {
-    res.send('Aplicação online.');
-});
+    return res.json({ message: "Aplicação online" });
+})
+
 
 
 router.get("/listar", ControllerVideo.listarVideos);
