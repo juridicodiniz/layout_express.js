@@ -51,7 +51,7 @@ try {
     database.sync().then(() => {
 
         // Iniciar o servidor
-        const port = process.env.PORT || 9443;
+        const port = process.env.PORT || 3000;
         app.listen(port, () => {
             console.log(`Servidor rodando na porta ${port}`);
         });
